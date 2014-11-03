@@ -1,0 +1,461 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Machine: 127.0.0.1
+-- Gegenereerd op: 27 okt 2014 om 12:36
+-- Serverversie: 5.6.17
+-- PHP-versie: 5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Databank: `autopasson_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `admins`
+--
+
+CREATE TABLE IF NOT EXISTS `admins` (
+  `admin_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `naam` varchar(64) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `gebruikersnaam` varchar(32) NOT NULL,
+  `wachtwoord` varchar(255) NOT NULL,
+  `role` tinyint(1) DEFAULT NULL,
+  `last_online` timestamp NULL DEFAULT NULL,
+  `isActive` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `admins`
+--
+
+INSERT INTO `admins` (`admin_id`, `naam`, `email`, `gebruikersnaam`, `wachtwoord`, `role`, `last_online`, `isActive`) VALUES
+(1, 'Admin', 'drhboers@gmail.com', 'admin', '$1$Mv..Jw3.$lOAOYvDpMA2.Ykhy30Qrg.', 1, '2014-10-25 10:11:09', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `brandstof_types`
+--
+
+CREATE TABLE IF NOT EXISTS `brandstof_types` (
+  `brandstof_type_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `brandstof_type` varchar(12) NOT NULL,
+  PRIMARY KEY (`brandstof_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `brandstof_types`
+--
+
+INSERT INTO `brandstof_types` (`brandstof_type_id`, `brandstof_type`) VALUES
+(1, 'Benzine'),
+(2, 'Diesel'),
+(3, 'LPG');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `kleuren`
+--
+
+CREATE TABLE IF NOT EXISTS `kleuren` (
+  `kleur_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `kleur` varchar(32) NOT NULL,
+  PRIMARY KEY (`kleur_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `kleuren`
+--
+
+INSERT INTO `kleuren` (`kleur_id`, `kleur`) VALUES
+(1, 'Beige'),
+(2, 'Blauw'),
+(3, 'Geel'),
+(4, 'Grijs'),
+(5, 'Groen'),
+(6, 'Rood'),
+(7, 'Wit'),
+(8, 'Zwart');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `merken`
+--
+
+CREATE TABLE IF NOT EXISTS `merken` (
+  `merk_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `merk` varchar(32) NOT NULL,
+  PRIMARY KEY (`merk_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `merken`
+--
+
+INSERT INTO `merken` (`merk_id`, `merk`) VALUES
+(1, 'BMW'),
+(2, 'Citroen'),
+(3, 'Daewoo'),
+(4, 'Fiat'),
+(5, 'Kia'),
+(6, 'Mitsubishi'),
+(7, 'Nissan'),
+(8, 'Opel'),
+(9, 'Peugeot'),
+(10, 'Renault'),
+(11, 'Skoda'),
+(12, 'Volkswagen'),
+(13, 'Volvo'),
+(14, 'Daihatsu'),
+(15, 'Alpha Romeo'),
+(16, 'Audi'),
+(17, 'Cadilac'),
+(18, 'Chevrolet'),
+(19, 'Ford'),
+(20, 'Honda'),
+(21, 'Hyundai'),
+(22, 'Lada'),
+(23, 'Lancia'),
+(24, 'Land Rover'),
+(25, 'Lexus'),
+(26, 'Mazda'),
+(27, 'Alpha Romeo'),
+(28, 'Mercedes-Benz'),
+(29, 'Mitsubishi'),
+(30, 'Porsche'),
+(31, 'Rover'),
+(32, 'Saab'),
+(33, 'Seat'),
+(34, 'Suzuki'),
+(35, 'Suzuki');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `modellen`
+--
+
+CREATE TABLE IF NOT EXISTS `modellen` (
+  `model_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `model` varchar(24) NOT NULL,
+  PRIMARY KEY (`model_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `modellen`
+--
+
+INSERT INTO `modellen` (`model_id`, `model`) VALUES
+(1, 'Bedrijfswagen'),
+(2, 'Cabrio'),
+(3, 'Coupé'),
+(4, 'Hatchback'),
+(5, 'Sedan'),
+(6, 'Stationwagon');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `occasions`
+--
+
+CREATE TABLE IF NOT EXISTS `occasions` (
+  `occasion_id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `merk_id` tinyint(4) NOT NULL,
+  `model_id` tinyint(4) NOT NULL,
+  `brandstof_type_id` tinyint(4) NOT NULL,
+  `transmissie_id` tinyint(4) NOT NULL,
+  `kleur_id` tinyint(4) DEFAULT NULL,
+  `titel` varchar(255) DEFAULT NULL,
+  `uitvoering` varchar(64) DEFAULT NULL,
+  `bouwjaar` smallint(6) DEFAULT NULL,
+  `kilometerstand` int(11) DEFAULT NULL,
+  `vermogen` varchar(32) DEFAULT NULL,
+  `verbruik` varchar(128) DEFAULT NULL,
+  `gewicht` char(4) DEFAULT NULL,
+  `prijs` smallint(6) NOT NULL,
+  `vervaldatum` timestamp NOT NULL,
+  `details` text,
+  `omschrijving` text,
+  `ingevoerd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isGezien` smallint(6) NOT NULL,
+  PRIMARY KEY (`occasion_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `occasions`
+--
+
+INSERT INTO `occasions` (`occasion_id`, `merk_id`, `model_id`, `brandstof_type_id`, `transmissie_id`, `kleur_id`, `titel`, `uitvoering`, `bouwjaar`, `kilometerstand`, `vermogen`, `verbruik`, `gewicht`, `prijs`, `vervaldatum`, `details`, `omschrijving`, `ingevoerd`, `isGezien`) VALUES
+(1, 1, 3, 1, 2, 2, 'BMW 3-serie Compact 316i    ', '', 2000, 112116, '', '', '', 1750, '0000-00-00 00:00:00', '1ste eigenaar', NULL, '2014-10-21 21:27:31', 6),
+(2, 2, 5, 1, 2, 2, 'Citroen Xsara Picasso 1.8i-16V Image', '', 2004, 208487, '', '', '', 2450, '0000-00-00 00:00:00', 'Nieuwe A.P.K.', NULL, '2014-10-21 21:27:31', 5),
+(3, 3, 3, 1, 2, 4, 'Daewoo Leganza 2.0-16V ', '', 2001, 176416, '', '', '', 999, '0000-00-00 00:00:00', 'Europe FULL OPTIONS!   ', NULL, '2014-10-21 21:27:31', 5),
+(4, 3, 5, 1, 2, 4, 'Daewoo Tacuma 1.8 SE AIRCO!', '', 2000, 137056, '', '', '', 1350, '0000-00-00 00:00:00', ' ', NULL, '2014-10-21 21:27:31', 3),
+(5, 14, 4, 1, 2, 2, 'Daihatsu Move 1.0-12V ', '', 2000, 153635, '', '', '', 1350, '0000-00-00 00:00:00', 'Nieuwe distributie riem', NULL, '2014-10-21 21:27:31', 2),
+(6, 4, 4, 1, 2, 4, 'Fiat Brava 1.6-16V 100 ', '', 2001, 158315, '', '', '', 1250, '0000-00-00 00:00:00', ' (AIRCO) Nieuwe A.P.K.  ', NULL, '2014-10-21 21:27:31', 2),
+(7, 4, 4, 1, 2, 2, 'Fiat Stilo 1.6-16V Active ', '', 2001, 176933, '', '', '', 1350, '0000-00-00 00:00:00', 'Nieuwe A.P.K, Airco, Cruise Control ', NULL, '2014-10-21 21:27:31', 2),
+(8, 5, 6, 1, 2, 2, 'Kia Carens 1.8 LS ', '', 2001, 124955, '', '', '', 1450, '0000-00-00 00:00:00', 'Airco', NULL, '2014-10-21 21:27:31', 2),
+(9, 5, 6, 3, 2, 2, 'Kia Carens 1.8-16V LX ', '', 2003, 124955, '', '', '', 2250, '0000-00-00 00:00:00', 'Nieuwe A.P.K.', NULL, '2014-10-21 21:27:31', 2),
+(10, 5, 6, 1, 2, 4, 'Kia Rio 1.3 LS ', '', 2004, 112116, '', '', '', 1950, '0000-00-00 00:00:00', 'Nieuwe A.P.K.', NULL, '2014-10-21 21:27:31', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `occasion_photos`
+--
+
+CREATE TABLE IF NOT EXISTS `occasion_photos` (
+  `photo_id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `occasion_id` smallint(6) NOT NULL,
+  `photo` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`photo_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `occasion_photos`
+--
+
+INSERT INTO `occasion_photos` (`photo_id`, `occasion_id`, `photo`) VALUES
+(1, 1, 'bmw1.jpg'),
+(2, 1, 'bmw2.jpg'),
+(3, 1, 'bmw3.jpg'),
+(4, 1, 'bmw4.jpg'),
+(5, 1, 'bmw5.jpg'),
+(6, 1, 'bmw6.jpg'),
+(7, 2, 'citroen1.jpg'),
+(8, 2, 'citroen2.jpg'),
+(9, 2, 'citroen3.jpg'),
+(10, 2, 'citroen4.jpg'),
+(11, 2, 'citroen5.jpg'),
+(12, 2, 'citroen6.jpg'),
+(13, 3, 'daewoo1_1.jpg'),
+(14, 3, 'daewoo1_2.jpg'),
+(15, 3, 'daewoo1_3.jpg'),
+(16, 3, 'daewoo1_4.jpg'),
+(17, 3, 'daewoo1_5.jpg'),
+(18, 3, 'daewoo1_6.jpg'),
+(19, 4, 'daewoo2_1.jpg'),
+(20, 4, 'daewoo2_2.jpg'),
+(21, 4, 'daewoo2_3.jpg'),
+(22, 4, 'daewoo2_4.jpg'),
+(23, 4, 'daewoo2_5.jpg'),
+(24, 4, 'daewoo2_6.jpg'),
+(25, 5, 'daihatsu1.jpg'),
+(26, 5, 'daihatsu2.jpg'),
+(27, 5, 'daihatsu3.jpg'),
+(28, 5, 'daihatsu4.jpg'),
+(29, 5, 'daihatsu5.jpg'),
+(30, 5, 'daihatsu6.jpg'),
+(31, 6, 'fiat1_1.jpg'),
+(32, 6, 'fiat1_2.jpg'),
+(33, 6, 'fiat1_3.jpg'),
+(34, 6, 'fiat1_4.jpg'),
+(35, 6, 'fiat1_5.jpg'),
+(36, 6, 'fiat1_6.jpg'),
+(37, 7, 'fiat2_1.jpg'),
+(38, 7, 'fiat2_2.jpg'),
+(39, 7, 'fiat2_3.jpg'),
+(40, 7, 'fiat2_4.jpg'),
+(41, 7, 'fiat2_5.jpg'),
+(42, 7, 'fiat2_6.jpg'),
+(43, 8, 'kia1_1.jpg'),
+(44, 8, 'kia1_2.jpg'),
+(45, 8, 'kia1_3.jpg'),
+(46, 8, 'kia1_4.jpg'),
+(47, 8, 'kia1_5.jpg'),
+(48, 8, 'kia1_6.jpg'),
+(49, 9, 'kia2_1.jpg'),
+(50, 9, 'kia2_2.jpg'),
+(51, 9, 'kia2_3.jpg'),
+(52, 9, 'kia2_4.jpg'),
+(53, 9, 'kia2_5.jpg'),
+(54, 9, 'kia2_6.jpg'),
+(55, 10, 'kia3_1.jpg'),
+(56, 10, 'kia3_2.jpg'),
+(57, 10, 'kia3_3.jpg'),
+(58, 10, 'kia3_4.jpg'),
+(59, 10, 'kia3_5.jpg'),
+(60, 10, 'kia3_6.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `paginas`
+--
+
+CREATE TABLE IF NOT EXISTS `paginas` (
+  `pagina_id` tinyint(2) NOT NULL AUTO_INCREMENT,
+  `pagina_naam` varchar(32) DEFAULT NULL,
+  `pagina_sequence` tinyint(4) NOT NULL DEFAULT '0',
+  `pagina_class` varchar(40) DEFAULT NULL,
+  `pagina_url` varchar(32) DEFAULT NULL,
+  `pagina_titel` varchar(128) DEFAULT NULL,
+  `isActive` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`pagina_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `paginas`
+--
+
+INSERT INTO `paginas` (`pagina_id`, `pagina_naam`, `pagina_sequence`, `pagina_class`, `pagina_url`, `pagina_titel`, `isActive`) VALUES
+(1, 'Home', 1, 'home', 'index.php', 'Welkom bij Auto Passon', 1),
+(2, 'Zoeken', 2, 'zoeken', 'zoeken.php', 'Zoeken', 1),
+(3, 'Over Ons', 3, 'over', 'over-ons.php', 'Over Auto passon', 1),
+(4, 'Service', 4, 'service', 'service.php', 'Auto Passon Service', 1),
+(5, 'Contact', 5, 'contact', 'contact.php', 'Auto Passon Contact', 1),
+(6, 'Disclaimer', 6, 'disclaimer', 'disclaimer.php', 'Auto Passon Disclaimer', 1),
+(7, 'Privacy', 7, 'privacy', 'privacy.php', 'Auto Passon Privacy', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `pagina_backgrounds`
+--
+
+CREATE TABLE IF NOT EXISTS `pagina_backgrounds` (
+  `background_id` smallint(2) NOT NULL AUTO_INCREMENT,
+  `pagina_id` tinyint(2) DEFAULT NULL,
+  `background` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`background_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `pagina_content`
+--
+
+CREATE TABLE IF NOT EXISTS `pagina_content` (
+  `content_id` tinyint(2) NOT NULL AUTO_INCREMENT,
+  `pagina_id` tinyint(2) NOT NULL,
+  `meta_title` varchar(64) DEFAULT NULL,
+  `meta_description` varchar(128) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `title` varchar(128) DEFAULT NULL,
+  `content` text,
+  `isActive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`content_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `prijzen`
+--
+
+CREATE TABLE IF NOT EXISTS `prijzen` (
+  `prijs_value` smallint(6) NOT NULL,
+  `prijs` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `prijzen`
+--
+
+INSERT INTO `prijzen` (`prijs_value`, `prijs`) VALUES
+(500, '500'),
+(1000, '1.000'),
+(1500, '1.500'),
+(2000, '2.000'),
+(2500, '2.500'),
+(3000, '3.000'),
+(3500, '3.500'),
+(4000, '4.000'),
+(5000, '5.000'),
+(7500, '7.500'),
+(10000, '10.000'),
+(12500, '12.500'),
+(15000, '15.000'),
+(17500, '17.500'),
+(20000, '20.000'),
+(22500, '22.500'),
+(25000, '25.000'),
+(30000, '30.000'),
+(32767, '35.000'),
+(32767, '40.000'),
+(32767, '45.000');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `roles`
+--
+
+CREATE TABLE IF NOT EXISTS `roles` (
+  `role_id` tinyint(4) NOT NULL,
+  `role` varchar(24) NOT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `roles`
+--
+
+INSERT INTO `roles` (`role_id`, `role`) VALUES
+(1, 'Admin'),
+(2, 'Super admin'),
+(3, 'Owner');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `slideshow_photos`
+--
+
+CREATE TABLE IF NOT EXISTS `slideshow_photos` (
+  `photo_id` smallint(2) NOT NULL AUTO_INCREMENT,
+  `photo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`photo_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `slideshow_photos`
+--
+
+INSERT INTO `slideshow_photos` (`photo_id`, `photo`) VALUES
+(1, '1.jpg'),
+(2, '2.jpg'),
+(3, '3.jpg'),
+(4, '4.jpg'),
+(5, '5.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `transmissie`
+--
+
+CREATE TABLE IF NOT EXISTS `transmissie` (
+  `transmissie_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `transmissie` varchar(24) NOT NULL,
+  PRIMARY KEY (`transmissie_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `transmissie`
+--
+
+INSERT INTO `transmissie` (`transmissie_id`, `transmissie`) VALUES
+(1, 'Automaat'),
+(2, 'Handgeschakeld');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

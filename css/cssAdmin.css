@@ -1,0 +1,407 @@
+/*----------------------------------------------------*/
+/*  HTML & BODY
+/*----------------------------------------------------*/
+
+html, body {
+  width: 100%;
+  height: 100%;	
+}
+
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;
+}
+
+body {
+  line-height: 1.1;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+		background: #F0F0F0;
+		display: block;	
+}
+
+/*----------------------------------------------------*/
+/*  General
+/*----------------------------------------------------*/
+
+.fl {
+	 float: left;
+}
+
+.fr {
+	 float: right;
+}
+
+.fn {
+	 float: none;
+}
+
+.cl {
+	 clear: left;
+}
+
+.cr {
+	 .clear: right;
+}
+
+.cb {
+	 clear: both;
+}
+
+/*----------------------------------------------------*/
+/*  SIDEBAR
+/*----------------------------------------------------*/
+
+#sidebar {
+	 width: 20%;
+		height: 100%;
+position: fixed;
+top: 0;
+bottom: 0;
+		background: #252525;
+}
+
+#sidebar #sidebar_header {
+	 width: 96%;
+		margin: 3rem 0;
+		text-align: right;
+		overflow: hidden;
+		margin-right: 4%;
+}
+
+#sidebar #sidebar_header a {
+	 font-size: 1.8rem;
+		font-weight: 600;
+		text-decoration: none;
+		color: #FFF;
+}
+
+#sidebar #logout {
+	 float: right;
+		display: inline-block;
+		margin: 0 1rem 2rem 0;
+		clear: right;
+}
+
+#sidebar #logout li {
+	 display: inline-block;
+	 margin: 0;
+		height: .6rem;
+		line-height: .6rem;	
+}
+
+#sidebar #logout li + li {
+	 padding-left: .6rem;
+	 margin-left: .4rem;
+		border-left: solid 1px #FFF;
+}
+
+#sidebar #logout li a {
+	 display: block;
+		padding: 0;
+		color: #FFF;
+		text-decoration: none;
+		font-size: .8rem;
+}
+
+/*----------------------------------------------------*/
+/*  MENU
+/*----------------------------------------------------*/
+
+#sidebar #menu {
+  width: 70%;
+  margin: 0;
+  float: right;
+}
+
+#sidebar #menu dt {
+  width: 100%;
+		margin: 0;
+  list-style-type: none;
+		background: #64a900;
+  border-top-left-radius:3px;
+  border-bottom-left-radius:3px; 
+		text-align: right;
+}
+
+#sidebar #menu dt.mt {
+	 margin-top: .5rem;
+}
+
+#sidebar #menu dt a {
+  display: block;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #FFF;
+  padding: .5rem 1rem .5rem 0;
+}
+
+
+#sidebar #menu dt:hover,
+#sidebar #menu dt:focus,
+#sidebar #menu dt:active {
+	background: #c20b0b;
+ color: #FFF;
+}
+
+#sidebar #menu dt.selected {
+	background: #c20b0b;
+ color: #FFF !important;  
+} 
+
+#sidebar #menu dd {
+ margin: 8px 0 0 10px;
+ line-height: 1.4;
+}
+
+#sidebar #menu dd ul {
+  line-height: 18px;
+  margin: 10px 1rem 5px 0;
+		text-align: right;  
+}
+
+#sidebar #menu dd ul li {
+ line-height: 1.6em;
+ display: block 
+}
+
+#sidebar #menu dd ul li a {
+ display: block;
+ text-indent: 5px;
+ font-size: .9rem;
+ font-weight: 500;
+ color: #CCC;
+ text-decoration: none;
+}
+
+/*----------------------------------------------------*/
+/*  CONTENT
+/*----------------------------------------------------*/
+
+#content {
+	height: 100%;
+	margin: 0 3% 0 23%;
+	padding-bottom: 3rem;
+}
+
+#content #header {
+	 width: 100%;
+		margin: 3rem 0;
+		overflow: hidden;
+}
+
+#content #header h2 {
+	 font-size: 1.8rem;
+		color: #333;
+		font-weight: bold;
+}
+
+#content #uitleg {
+		display: inline-block;
+		float: left;
+		margin: 0 0 2rem;
+		clear: left;
+}
+
+#content #uitleg p span {
+	display: inline-block;
+	margin-top: .5rem;
+	font-size: .8rem;
+	color: red;
+}
+
+#content #contentbox {
+	 width: 98%;
+		background: #FFF;
+		border: solid 1px #666;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		overflow: hidden;
+		padding-bottom: 1.5rem; 
+}
+
+#content #contentbox h2 {
+	 width: 100%;
+		margin: 0 0 1rem;
+		padding: 1rem 0;
+		background: #999;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+		color: #FFF;
+		text-indent: 2rem;
+}
+
+#content #contentbox h2 span {
+	display: inline-block;
+	font-size: 80%;
+}
+
+#content #contentbox h2 span b {
+	color: red;
+	font-size: 1.1rem;
+}
+
+#content #contentbox form {
+	 width: 94%;
+	 margin: 0 auto;
+		overflow: hidden;
+		clear: both;		
+}
+
+#content #contentbox form .form_wrapper {
+	 width: 100%;
+		float: left;
+}
+
+.fm {
+	 margin: .5rem 0;
+}
+
+#content #contentbox form fieldset {
+	  width: 49%;
+			padding: 0;
+			border: 0;
+}
+
+fieldset.fw {
+	 width: 100%;
+		float: left;
+}
+
+#content #contentbox form fieldset p {
+	 width: 100% !important;
+	 float: left;
+		clear: left !important;
+		margin: 1rem 0 1.5rem;
+		font-size: .9rem;
+}
+
+#content #contentbox form fieldset label {
+	 width: 49%;
+		height: 2rem;
+		line-height: 2rem;
+		display: inline-block;
+		font-weight: 600;
+		font-size: .9rem;
+}
+
+#content #contentbox form fieldset label span {
+	color: red;
+	font-size: 1.1rem;
+}
+
+#content #contentbox form fieldset .select_small,
+#content #contentbox form fieldset .select_medium,
+#content #contentbox form fieldset .select,
+#content #contentbox form fieldset .textfield,
+#content #contentbox form fieldset .datefield,
+#content #contentbox form fieldset .textarea {
+	 width: 49%;
+		padding: .3rem 0;
+		border: solid 1px #999;
+  border-radius:3px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;		
+}
+
+#content #contentbox form fieldset .textfield {
+	 padding: .38rem 0;
+		text-indent: 3px;
+}
+
+.select_small {
+	 width: 17% !important;
+		margin-right: 2%;
+}
+
+.select_medium {
+	 width: 30% !important;
+}
+
+#content #contentbox form fieldset .textarea {
+	width: 100%;
+	height: 8rem;
+}
+
+#filediv {
+	display: inline-block
+	margin: 1rem .5rem 1rem 0;
+}
+
+.file{
+	 margin: 0 .5rem 0 0;
+  float: left;
+  color:green;
+  padding:6px; border:1px dashed #123456;    
+  background-color: #f9ffe5;
+}
+
+.upload,
+.insert{
+	 margin-left: 1.5rem;
+	 display: inline-block;
+  background: #64a900;
+  border:1px solid #64a900;
+  color:#fff;
+  border-radius:3px;
+  padding: 9px 12px;
+  text-shadow:1px 1px 0px green;
+}
+
+.insert{
+  margin: 1rem 0 0;	
+}
+
+.upload:hover,
+.insert:hover{
+  cursor:pointer;
+  background:#c20b0b;
+  border:1px solid #c20b0b;
+}
+
+#noerror,
+#error{
+  margin: .5rem 3%;
+		display: inline-block; 
+  color:green;
+  text-align: left;
+}
+#error{
+  color:red;
+}
+
+ 
+#img{ 
+  width: 17px;
+  border: none; 
+  height:17px;
+  margin-left: -20px;
+  margin-bottom: 67px;
+}
+
+.preview{
+		float: left !important;
+}
+
+.preview img{
+	 width:100px;
+  height:75px;
+  padding: 3px;
+  border: 1px solid rgb(232, 222, 189);
+}
+
+b{
+    color:red;
+}
+
+
+
+
+
