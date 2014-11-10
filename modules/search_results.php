@@ -1,9 +1,8 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 $pagina_id = 2;
 require_once "../includes/config.php";
+
 $merk              = filter_input(INPUT_GET, 'merk', FILTER_SANITIZE_NUMBER_INT);
 $model             = filter_input(INPUT_GET, 'model', FILTER_SANITIZE_NUMBER_INT);
 $prijs             = filter_input(INPUT_GET, 'prijs', FILTER_SANITIZE_NUMBER_INT);
