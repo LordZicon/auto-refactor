@@ -50,7 +50,7 @@ class Occasion extends DbModel
         $sql = $this->getQuery(TRUE);
         $sql .= "ORDER BY O.isGezien DESC 
                 LIMIT 3";
-                 
+        
         $stmt = $this->pdo->query($sql);
 
         return $stmt->fetchAll();
@@ -78,7 +78,7 @@ class Occasion extends DbModel
     public function zoeken($merk, $model, $prijs, $bouwjaar, $transmissie, $brandstof, $kilometers, $kleur)
     {
         $sql = $this->getQuery(TRUE);
-        $sql = "WHERE 0 = 0";
+        $sql .= "WHERE 0 = 0";
 
         $params = array();
 
@@ -155,12 +155,12 @@ class Occasion extends DbModel
                      , O.gewicht
                      , O.isGezien";
 
-        $tables = "FROM occasions O
-                  JOIN merken M ON O.merk_id = M.merk_id
-                  JOIN modellen MO ON O.model_id = MO.model_id
-                  JOIN brandstof_types B ON O.brandstof_type_id = B.brandstof_type_id
-                  JOIN transmissie T ON O.transmissie_id = T.transmissie_id
-                  JOIN kleuren K ON O.kleur_id = K.kleur_id";
+        $tables = " FROM occasions O
+                  JOIN merken M ON O.merk_id = M.merk_id 
+                  JOIN modellen MO ON O.model_id = MO.model_id 
+                  JOIN brandstof_types B ON O.brandstof_type_id = B.brandstof_type_id 
+                  JOIN transmissie T ON O.transmissie_id = T.transmissie_id 
+                  JOIN kleuren K ON O.kleur_id = K.kleur_id ";
 
         $photoSQL = "JOIN (SELECT occasion_id
                              , MAX(photo_id) AS laatste
@@ -168,7 +168,7 @@ class Occasion extends DbModel
                       GROUP BY occasion_id ) AS PX
                     ON PX.occasion_id = O.occasion_id
              LEFT JOIN occasion_photos AS OP ON OP.occasion_id = PX.occasion_id
-                   AND OP.photo_id = PX.laatste";
+                   AND OP.photo_id = PX.laatste ";
 
         if ($withPhotos) {
             $fields .= ", OP.photo";

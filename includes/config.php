@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require_once "connect.php";
 
 function auto_loader($file){
@@ -7,14 +11,10 @@ function auto_loader($file){
     
 spl_autoload_register('auto_loader');
 
-$basis   = new Basis($pdo);
-$search  = new Search($pdo);
+$page     = new Basis($pdo);
+$occasion = new Occasion($pdo);
+$search   = new Search($pdo);
 
-// Menu's en Content
-
-$header_menu = $basis->get_header_menu();
-$footer_menu = $basis->get_footer_menu();
-$content     = $basis->get_pagina_content($pagina_id);
 
 // Zoek Selects
 
@@ -27,6 +27,6 @@ $kleuren      = $search->get_kleuren();
 
 $currentYear = date("Y");
 $startyear   = date("Y") - 30;
-$years = range ($currentYear, $startyear);
-      
-?>
+$years       = range ($currentYear, $startyear);
+
+$searchValues = compact('merken', 'modellen', 'brandstoffen', 'transmissies', 'prijzen', 'kleuren', 'years');
