@@ -14,7 +14,7 @@
     <?php foreach ($featured_autos as $featured): ?>
     <li>
       <a href="occasion_details.php?occasion_id=<?php echo $featured['occasion_id']; ?>">
-        <img src="occasion_photos/<?php echo $featured['photo']; ?>" width="80" height="60">
+        <img src="images/occasion_photos/<?php echo $featured['photo']; ?>" width="80" height="60">
       </a>
       <h3>
         <a href="occasion_details.php?occasion_id=<?php echo $featured['occasion_id']; ?>">

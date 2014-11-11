@@ -16,14 +16,14 @@
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 
   <style>
-    body { background-image: url('background_photos/<?php echo rand(1,13);?>.jpg'); }
+    body { background-image: url('images/background_photos/<?php echo rand(1,13);?>.jpg'); }
   </style>
 </head>
 <body id="home">
   <div id="wrapper">
 
     <header id="header">
-      <section class="logo"><a href="index.php"><img src="img/logo.png"></a></section>
+      <section class="logo"><a href="index.php"><img src="images/logo.png"></a></section>
       <nav class="nav">
         <?php foreach ($header_menu as $menu): ?>
         <li><a href="<?php echo $menu['pagina_url']; ?>" title="<?php echo $menu['pagina_titel']; ?>" class="<?php echo $menu['pagina_class']; ?>"><?php echo $menu['pagina_naam']; ?></a></li>

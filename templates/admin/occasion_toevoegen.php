@@ -117,7 +117,6 @@
         <input type="submit" value="Upload occasion" name="submit" id="insert" class="insert"/>
       </div>
     </form>
-    <?php include "includes/insert_occasion.php"; ?>
   </section>
 </div>
 

@@ -9,7 +9,7 @@
   <h2 class="detailheading"><?php echo $occasion_details['merk']; ?>&nbsp;<?php echo $occasion_details['uitvoering']; ?></h2>
   <ul class="gallery" id="aspect">
     <?php foreach($occasion_photos as $photo): ?>
-    <li><a class='fancybox' data-fancybox-group='gallery' href="occasion_photos/<?php echo $photo['photo']; ?>"><img src="occasion_photos/<?php echo $photo['photo']; ?>" alt="" width="80" height="60" /></a></li>
+    <li><a class='fancybox' data-fancybox-group='gallery' href="images/occasion_photos/<?php echo $photo['photo']; ?>"><img src="images/occasion_photos/<?php echo $photo['photo']; ?>" alt="" width="80" height="60" /></a></li>
     <?php endforeach; ?>
   </ul>
   <ul class="occasion_details">
