@@ -22,6 +22,8 @@ $data = array(
   'footer_menu'    => $page->get_footer_menu(),
 );
 
+// Zoek Selects
+$searchValues   = $search->get_widget_values();
 $featured_autos = $occasion->get_featured();
 
 $data['content'] = new View('templates/zoeken.php', compact('zoek_resultaten') + $searchValues);

@@ -1,5 +1,5 @@
 <?php
-class Occasion extends DbModel
+class Model_Occasion extends DbModel
 {
     public function add($values) {
         $sql = "INSERT INTO occasions (merk_id, uitvoering, model_id, deuren,transmissie_id, 
@@ -37,7 +37,7 @@ class Occasion extends DbModel
     public function get_details($occasion_id)
     {
         $sql = $this->getQuery();
-        $sql = "WHERE O.occasion_id = ?";
+        $sql .= "WHERE O.occasion_id = ?";
         
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(array($occasion_id));

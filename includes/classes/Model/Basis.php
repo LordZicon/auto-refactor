@@ -1,5 +1,5 @@
 <?php
-class Basis extends DbModel {
+class Model_Basis extends DbModel {
 
     public function get_content_menu() {
         $sql = "SELECT pagina_naam

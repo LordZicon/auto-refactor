@@ -1,7 +1,7 @@
 <?php
-class Search extends DbModel {
+class Model_Search extends DbModel {
     
-    function get_merken() {
+    public function get_merken() {
         $sql = "SELECT DISTINCT O.merk_id
                      , M.merk
                   FROM occasions O
@@ -13,7 +13,7 @@ class Search extends DbModel {
         return $results;                        
     }
                         
-    function get_modellen() {
+    public function get_modellen() {
         $sql = "SELECT DISTINCT O.model_id
                      , M.model
                   FROM occasions O
@@ -25,7 +25,7 @@ class Search extends DbModel {
         return $results;                        
     }
 
-    function get_brandstoffen() {
+    public function get_brandstoffen() {
         $sql = "SELECT DISTINCT O.brandstof_type_id
                      , B.brandstof_type
                   FROM occasions O
@@ -37,7 +37,7 @@ class Search extends DbModel {
         return $results;                        
     }
 
-    function get_transmissies() {
+    public function get_transmissies() {
         $sql = "SELECT DISTINCT O.transmissie_id
                      , T.transmissie
                   FROM occasions O
@@ -49,7 +49,7 @@ class Search extends DbModel {
         return $results;                        
     }
 
-    function get_prijzen() {
+    public function get_prijzen() {
         $sql = "SELECT prijs_value
                      , prijs
                   FROM prijzen";
@@ -60,7 +60,7 @@ class Search extends DbModel {
         return $results;                        
     }   
     
-    function get_kleuren() {
+    public function get_kleuren() {
         $sql = "SELECT DISTINCT O.kleur_id
                      , K.kleur
                   FROM occasions O
@@ -70,6 +70,22 @@ class Search extends DbModel {
         
         $results = $stmt->fetchAll();
         return $results;                        
-    }   
+    }
+
+    public function get_widget_values()
+    {
+        $merken       = $this->get_merken();
+        $modellen     = $this->get_modellen();
+        $brandstoffen = $this->get_brandstoffen();
+        $transmissies = $this->get_transmissies();
+        $prijzen      = $this->get_prijzen();
+        $kleuren      = $this->get_kleuren();
+
+        $currentYear = date("Y");
+        $startyear   = date("Y") - 30;
+        $years       = range ($currentYear, $startyear);
+
+        return compact('merken', 'modellen', 'brandstoffen', 'transmissies', 'prijzen', 'kleuren', 'years');
+    }
     
 }
