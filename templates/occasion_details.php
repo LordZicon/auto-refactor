@@ -1,15 +1,15 @@
-<link rel="stylesheet" type="text/css" href="css/cssSite.css" media="screen">
-<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/css/cssSite.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css" media="screen">
 
 <div class="sidebar">
-  <?php include_once "templates/search.php"; ?>
+  <?php include_once "search.php"; ?>
 </div>
 
 <div class="content">
   <h2 class="detailheading"><?php echo $occasion_details['merk']; ?>&nbsp;<?php echo $occasion_details['uitvoering']; ?></h2>
   <ul class="gallery" id="aspect">
     <?php foreach($occasion_photos as $photo): ?>
-    <li><a class='fancybox' data-fancybox-group='gallery' href="images/occasion_photos/<?php echo $photo['photo']; ?>"><img src="images/occasion_photos/<?php echo $photo['photo']; ?>" alt="" width="80" height="60" /></a></li>
+    <li><a class='fancybox' data-fancybox-group='gallery' href="/images/occasion_photos/<?php echo $photo['photo']; ?>"><img src="/images/occasion_photos/<?php echo $photo['photo']; ?>" alt="" width="80" height="60" /></a></li>
     <?php endforeach; ?>
   </ul>
   <ul class="occasion_details">
@@ -39,6 +39,6 @@
   </ul>
 </div>
 
-<script type="text/javascript" src="js/jquery.fancybox.js"></script>
-<script type="text/javascript" src="js/jquery.fancybox-media.js"></script>
-<script type="text/javascript" src="js/fancybox.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox-media.js"></script>
+<script type="text/javascript" src="/js/fancybox.js"></script>

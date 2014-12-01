@@ -120,9 +120,9 @@
   </section>
 </div>
 
-<script type="text/javascript" src="../js/script.js"></script>
-<script type="text/javascript" src="../js/jquery.maskedinput.min.js"></script>
-<script type="text/javascript" src="../js/numbers.js"></script>
+<script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="/js/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="/js/numbers.js"></script>
 <script>
   jQuery(function($){
     $.mask.definitions['-']='[+-]';

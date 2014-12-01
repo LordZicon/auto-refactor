@@ -6,6 +6,7 @@ ini_set('display_errors', 1);
 include 'autoloader.php';
 
 Config::setDirectory(__DIR__.'/../config');
+View::setDirectory(__DIR__.'/../templates');
 
 $pdo = Db::getInstance();
 

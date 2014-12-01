@@ -2,8 +2,10 @@
 
 function auto_loader($file)
 {
-    $file = str_replace('_', '/', $file);
-    require 'classes/' . $file . '.php';    
+    $file = APP_PATH . '/includes/classes/' . str_replace('_', '/', $file) . '.php';
+    if (file_exists($file)) {
+        require_once $file;
+    } 
 }
     
 spl_autoload_register('auto_loader');

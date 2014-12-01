@@ -1,5 +1,7 @@
 <?php
-class View {
+class View
+{
+    static public $directory;
     private $template;
     private $viewData;
 
@@ -9,10 +11,17 @@ class View {
         $this->viewData = $viewData;
     }
 
+    static public function setDirectory($path)
+    {
+        self::$directory = $path;
+    }
+
     public function setTemplate($template)
     {
-        if (file_exists($template)) {
-            $this->template = $template;
+        $path = self::$directory . '/' . $template;
+
+        if (file_exists($path)) {
+            $this->template = $path;
         } else {
             throw new Exception("View file '$template' not found");
         }

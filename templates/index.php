@@ -4,7 +4,7 @@
 
 <section class="search">
 
-    <?php include_once "templates/search.php"; ?>
+    <?php include 'search.php'; ?>
 
 </section>
 

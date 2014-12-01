@@ -1,0 +1,187 @@
+@charset "iso-8859-1";
+
+/*----------------------------------------------------*/
+/*  RESET
+/*----------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html, body {
+	 width: 100%;
+		height: 100%;
+}
+
+html {
+ font-size: 100%;
+}
+
+body {
+ line-height: 1;
+}
+	
+ol, ul {
+ list-style: none;
+}
+	
+blockquote, q {
+  quotes: none;
+}
+    
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+    
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*----------------------------------------------------*/
+/*  BODY
+/*----------------------------------------------------*/
+
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;
+}
+
+body {
+    background-color:#f4cbc9;
+    background-image: linear-gradient(top, rgb(170,170,170) 0%, rgb(221,221,221) 50%, rgb(247,231,208) 100%);
+    background-image: -o-linear-gradient(top, rgb(170,170,170) 0%, rgb(221,221,221) 50%, rgb(247,231,208) 100%);
+    background-image: -moz-linear-gradient(top, rgb(170,170,170) 0%, rgb(221,221,221) 50%, rgb(247,231,208) 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgb(170,170,170)),color-stop(0.50, rgb(221,221,221)),color-stop(1, rgb(247,231,208)));
+    background-image: -webkit-linear-gradient(top, rgb(170,170,170) 0%, rgb(221,221,221) 50%, rgb(247,231,208) 100%);
+    background-image: -ms-linear-gradient(top, rgb(170,170,170) 0%, rgb(221,221,221) 50%, rgb(247,231,208) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#AAAAAA', endColorstr='#DDDDDD');
+	   line-height: 1.1;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+
+		
+/*----------------------------------------------------*/
+/*  LOGIN
+/*----------------------------------------------------*/
+
+.wrapper {
+	 width: 100%;
+		height: 100%;
+		text-align: center;
+}
+
+.wrapper:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.login {
+  width: 22%;
+		background: #FFF;
+		padding: 3px 0 0;	
+		overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+		text-align: left;
+}
+
+.login h1,
+.error,
+.login_form,
+.form_field {
+	 width: 98%;
+		width: calc(100% - 6px);
+		width: -moz-calc(100% - 6px);
+		width: -webkit-calc(100% - 6px);
+		margin: 0 3px 0;
+}
+
+.error {
+	 margin: .4rem 0 .6rem 3px;
+		color: #CC0000;
+		font-size: .8rem;
+		font-weight: 600;
+}
+
+.login h1 {
+		background: #666666;
+		font-size: 1.4rem;
+		padding: .3rem 0;
+		text-indent: 1rem;
+		color: #FFF;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+}
+
+.login_form {
+		margin: 1rem 3px 0;
+		padding-bottom: 1rem;
+}
+
+.form_field {
+		width: calc(100% - 16px);
+		width: -moz-calc(100% - 16px);
+		width: -webkit-calc(100% - 16px);
+		margin: 0 2px 1rem 1px;
+		padding: 6px;
+		border: solid 1px #666666;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+.login_button {
+	 float: left;
+		margin: 0 0 1rem 2px;
+}
+
+.login p {
+	 margin: 0 0 .5rem 5px;
+	 float: left;
+		clear: left;
+}
+
+.login p a {
+	font-size: .8rem;
+	color: inherit;
+	text-decoration: none;
+}
+
+.login p a:hover {
+	 text-decoration: underline;
+}

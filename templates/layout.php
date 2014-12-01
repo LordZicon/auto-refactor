@@ -10,20 +10,20 @@
   <meta name="keywords" content="<?php echo $meta['meta_keywords']; ?>">
   <meta name="robots" content="index, follow">
   
-  <link rel="stylesheet" type="text/css" href="css/cssReset.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="css/cssIndex.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/css/cssReset.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/css/cssIndex.css" media="screen">
 
-  <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
 
   <style>
-    body { background-image: url('images/background_photos/<?php echo rand(1,13);?>.jpg'); }
+    body { background-image: url('/images/background_photos/<?php echo rand(1,13);?>.jpg'); }
   </style>
 </head>
 <body id="home">
   <div id="wrapper">
 
     <header id="header">
-      <section class="logo"><a href="index.php"><img src="images/logo.png"></a></section>
+      <section class="logo"><a href="index.php"><img src="/images/logo.png"></a></section>
       <nav class="nav">
         <?php foreach ($header_menu as $menu): ?>
         <li><a href="<?php echo $menu['pagina_url']; ?>" title="<?php echo $menu['pagina_titel']; ?>" class="<?php echo $menu['pagina_class']; ?>"><?php echo $menu['pagina_naam']; ?></a></li>
@@ -52,7 +52,7 @@
 
   </div>
   
-  <script type="text/javascript" src="js/slideshow.js"></script>
-  <script type="text/javascript" src="js/featured.details.js"></script>
+  <script type="text/javascript" src="/js/slideshow.js"></script>
+  <script type="text/javascript" src="/js/featured.details.js"></script>
 </body>
 </html>

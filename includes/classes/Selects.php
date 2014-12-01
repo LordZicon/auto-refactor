@@ -77,6 +77,17 @@ class Selects extends DbModel {
         
         $results = $stmt->fetchAll();
         return $results;                        
-    }   
+    }
+
+    function get_values() {
+        return array(
+            'merken'       => $this->get_merken(),
+            'modellen'     => $this->get_modellen(),
+            'transmissies' => $this->get_transmissies(),
+            'brandstoffen' => $this->get_brandstoffen(),
+            'kleuren'      => $this->get_kleuren(),
+            'maanden'      => $this->get_maanden(),
+        );
+    }
     
 }
